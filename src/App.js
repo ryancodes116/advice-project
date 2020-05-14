@@ -19,9 +19,24 @@ const App = () => {
 
   useEffect(() => {
     fetchAdvice();
-  }, []);
+  });
 
-  return <h1>{advice}</h1>;
+  const handleClick = (e) => {
+    fetchAdvice();
+
+    e.preventDefault();
+  };
+
+  return (
+    <div className="app">
+      <div className="card">
+        <h1 className="heading">{advice}</h1>
+        <button className="button" onClick={handleClick}>
+          <span>GIVE ME ADVICE</span>
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default App;
